@@ -4,7 +4,7 @@
 
 <h3 class="mt-5">Edit post</h3>
 
-<form class="mt-3" method="POST" action="/post/{{ $post->id }}">
+<form class="mt-3" method="POST" action="/posts/{{$post->id }}">
   @method('PUT')
   @csrf
   <div class="form-group">

@@ -56,10 +56,10 @@ class postController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(post $post)
+    public function show($id)
     {
         $post = Post::find($post->id);
-        return view('posts.show', compact('post'));
+        return redirect('welcome');
     }
 
     /**
@@ -71,7 +71,7 @@ class postController extends Controller
     public function edit($id)
     {
         $post = \App\Post::find($id);
-        return view('post.edit', compact('post'));
+        return view('edit', compact('post'));
     }
 
     /**

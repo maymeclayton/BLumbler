@@ -63,7 +63,7 @@
                   <h5 class="card-title"> {{ $post->title }}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Posted by: {{ $post -> name }}</h6>
                   <p class="card-text">{{ $post ->text }}</p>
-                  <p class="edit-card"><a href="/posts/edit">Edit</a></p>
+                  <p class="edit-card"><a href="/posts/ {{$post->id}}/edit">Edit</a></p>
                 </div>
               </div>
             </div>
