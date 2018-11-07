@@ -4,7 +4,7 @@
 
 <h3 class="mt-5">Edit post</h3>
 
-<form class="mt-3" method="POST" action="/posts/{{ $post->id }}">
+<form class="mt-3" method="POST" action="/post/{{ $post->id }}">
   @method('PUT')
   @csrf
   <div class="form-group">
@@ -15,6 +15,7 @@
     <label for="">post</label>
     <textarea class="form-control" id="text" name='text' rows="5" value="{{ $post->text }}">{{ $post->text }}</textarea>
   </div>
+  <input type="hidden" name="id" value="{{ $post->id }}">
   <input class="btn btn-primary" type="submit" value="Submit">
 </form>
 
