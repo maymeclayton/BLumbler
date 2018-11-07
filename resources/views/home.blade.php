@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -13,8 +13,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                        <div> <a href="create">Create a new post</a></div>
-                        <div> <a href="edit">Edit an existing post</a></div>
+                        <div> <a href="/posts/create">Create a new post</a></div>
+                        <div> <a href="/">Edit an existing post</a></div>
                 </div>
             </div>
         </div>

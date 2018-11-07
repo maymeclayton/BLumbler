@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\post;
+use App\Post;
 use Illuminate\Http\Request;
 
 class postController extends Controller
@@ -14,7 +14,11 @@ class postController extends Controller
      */
     public function index()
     {
-       return view('home');
+      // $posts = \Auth::user()->posts()->orderBy('updated_at', 'desc')->get();
+        $posts = Post::all()->sortByDesc('updated_at');
+
+      return view ('welcome', compact('posts'));
+
     }
 
     /**
@@ -24,7 +28,7 @@ class postController extends Controller
      */
     public function create()
     {
-       return view('create');
+       return view('/create');
     }
 
     /**
@@ -35,7 +39,15 @@ class postController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new \App\Post;
+        $post->title = $request->input('title');
+        $post->user_id = \Auth::id();
+        $post->name = \Auth::user()->name;
+        $post->text = $request->input('text');
+        $post->save();
+
+        return redirect('/');
+
     }
 
     /**
@@ -46,7 +58,8 @@ class postController extends Controller
      */
     public function show(post $post)
     {
-        //
+        $post = Post::find($post->id);
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -55,9 +68,10 @@ class postController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(post $post)
+    public function edit($id)
     {
-        return view('edit');
+        $post = \App\Post::find($id);
+        return view('/', compact('post'));
     }
 
     /**
@@ -67,9 +81,16 @@ class postController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, post $post)
+    public function update(Request $request, $id)
     {
-        //
+        $post = \App\Post::find($id);
+        $post->title = $request->input('title');
+        // $post->user_id = \Auth::id();
+        // $post->name = \Auth::user()->name;
+        $post->text = $request->input('text');
+        $post->save();
+
+        return redirect('/');
     }
 
     /**

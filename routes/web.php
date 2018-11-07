@@ -19,8 +19,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/post', 'PostController@index')->name('post');
+Route::get('/', 'PostController@index')->name('welcome');
 
-Route::get('/create', 'PostController@create')->name('post');
+Route::resource('/posts', 'PostController');
 
-Route::get('/edit', 'PostController@edit')->name('post');
+// //
+// Route::get('create', 'PostController@create')->name('post');
+// //
+// Route::get('/store', 'PostController@store')->name('/');
+// //
+// Route::post('/', 'PostController@store')->name('/');
+//
+// Route::get('/edit', 'PostController@edit')->name('post');
