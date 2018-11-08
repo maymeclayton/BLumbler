@@ -23,6 +23,8 @@ Route::get('/', 'PostController@index')->name('welcome');
 
 Route::resource('/posts', 'PostController');
 
+Route::get('/posts/{id}/delete', 'PostController@confirmDelete');
+
 // //
 // Route::get('create', 'PostController@create')->name('post');
 // //

@@ -99,8 +99,17 @@ class postController extends Controller
      * @param  \App\post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(post $post)
+    public function destroy(Request $request, $id)
     {
-        //
+        $post = \App\Post::find($id);
+        $post->delete();
+
+        return redirect('/');
     }
+
+    public function confirmDelete($id)
+{
+    $post = \App\Post::find($id);
+    return view('confirmDelete', compact('post'));
+}
 }

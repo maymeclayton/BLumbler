@@ -4,17 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class post extends Model
 {
-    // public function setTitle($value){
-    //   if (\Auth::check()){
-    //     $this->attributes['title'] = \Auth::id() . '-' . $value;
-    //   } else {
-    //   $this->attributes['title'] = $value;
-    //   }
-    // }
-    //
-    // public function setText($value){
-    //   $this->attributes['text'] = $value;
-    // }
+
+    public function prettyUpdate() {
+    $dt = new Carbon($this->updated_at);
+    if ($dt->isToday()) {
+        return $dt->format('g:i:s a');
+    }
+    return $dt->format('n/j/y \\a\\t g:i:s a');
+}
+
 }

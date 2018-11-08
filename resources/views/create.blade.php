@@ -14,7 +14,7 @@
     <label for="">create your post:</label>
     <textarea class="form-control" id="text" rows="5" type="text" name="text" placeholder="say your peace..."></textarea>
   </div>
-  <input class="btn btn-primary" type="submit" value="Submit">
+  <input class="btn btn-success" type="submit" value="Submit">
 </form>
 
 

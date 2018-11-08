@@ -2,10 +2,10 @@
 
 @section('content')
 
-<h3 class="mt-2 text-white">Edit post</h3>
+<h3 class="mt-2 text-white">Delete post</h3>
 
 <form class="mt-3" method="POST" action="/posts/{{$post->id }}">
-  @method('PUT')
+  @method('DELETE')
   @csrf
   <div class="form-group text-white">
     <label for="">title</label>
@@ -16,7 +16,7 @@
     <textarea class="form-control" id="text" name='text' rows="5" value="{{ $post->text }}">{{ $post->text }}</textarea>
   </div>
   <input type="hidden" name="id" value="{{ $post->id }}">
-  <input class="btn btn-success" type="submit" value="Submit">
+  <input class="btn btn-warning" type="submit" value="Delete">
 </form>
 
 
